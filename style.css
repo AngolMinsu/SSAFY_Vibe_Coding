@@ -1,0 +1,307 @@
+/* --- CSS 변수 및 기본 리셋 --- */
+:root {
+    --bg-warm: #fdfbf7;
+    --primary-brown: #6f4e37;
+    --dark-brown: #4a3319;
+    --light-brown: #b7906c;
+    --accent-cream: #f5ebe0;
+    --text-dark: #2c1a0c;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard', -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-warm);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    line-height: 1.7;
+}
+
+/* --- 스크롤 애니메이션 --- */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- 히어로 섹션 --- */
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(74, 51, 25, 0.4), rgba(42, 28, 14, 0.7)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1600') no-repeat center/cover;
+    color: var(--white);
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+header p {
+    font-size: 1.4rem;
+    margin-bottom: 35px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    font-weight: 300;
+}
+
+.btn-explore {
+    padding: 15px 40px;
+    background-color: var(--primary-brown);
+    color: var(--white);
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.btn-explore:hover {
+    background-color: var(--light-brown);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* --- 소개 코멘터리 및 핵심 가치 섹션 --- */
+.intro-section {
+    max-width: 900px;
+    margin: 120px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.intro-section h2 {
+    color: var(--dark-brown);
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+}
+
+.intro-section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-brown);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.intro-lead {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-brown);
+    margin-bottom: 15px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.feature-card {
+    background-color: var(--white);
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(111, 78, 55, 0.05);
+    border: 1px solid var(--accent-cream);
+}
+
+.feature-card h3 {
+    color: var(--primary-brown);
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+/* --- 인터랙티브 지도 섹션 --- */
+.map-section {
+    max-width: 1100px;
+    margin: 100px auto;
+    padding: 50px 30px;
+    background-color: var(--accent-cream);
+    border-radius: 24px;
+    box-shadow: 0 12px 40px rgba(111, 78, 55, 0.1);
+    text-align: center;
+}
+
+.map-section h2 {
+    color: var(--dark-brown);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+    margin: 30px auto;
+    border: 5px solid var(--white);
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+/* 지도 내부 마우스 오버 전용 카드 정보창 */
+.info-card {
+    position: fixed;
+    bottom: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 450px;
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 -10px 30px rgba(74, 51, 25, 0.25);
+    border-top: 6px solid var(--primary-brown);
+    text-align: left;
+    transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
+    opacity: 0;
+    z-index: 2000;
+    pointer-events: none;
+}
+
+.info-card.active {
+    bottom: 30px;
+    opacity: 1;
+}
+
+.info-card h4 {
+    color: var(--dark-brown);
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-card .tag {
+    font-size: 0.8rem;
+    background-color: var(--accent-cream);
+    color: var(--primary-brown);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.info-card p {
+    font-size: 1rem;
+    color: #443322;
+    line-height: 1.6;
+}
+
+.map-instruction {
+    font-size: 1rem;
+    color: var(--primary-brown);
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* --- 토박이 꿀팁 상호작용 세션 --- */
+.action-section {
+    text-align: center;
+    margin: 120px auto;
+    padding: 0 20px;
+}
+
+/* 팝업 모달 */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 3000;
+}
+
+.popup-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup-content {
+    background-color: var(--bg-warm);
+    padding: 35px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    border: 2px solid var(--light-brown);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.popup-overlay.show .popup-content {
+    transform: scale(1);
+}
+
+.popup-content h3 {
+    color: var(--dark-brown);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.tip-item {
+    text-align: left;
+    margin-bottom: 15px;
+    background: var(--white);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-brown);
+}
+
+.btn-close {
+    margin-top: 15px;
+    padding: 10px 30px;
+    background-color: var(--primary-brown);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- 푸터 --- */
+footer {
+    background-color: var(--dark-brown);
+    color: var(--accent-cream);
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.95rem;
+}
+
+/* --- 반응형 레이아웃 --- */
+@media (max-width: 768px) {
+    header h1 { font-size: 2.5rem; }
+    header p { font-size: 1.1rem; }
+    #map { height: 380px; }
+    .map-section { padding: 30px 15px; }
+}

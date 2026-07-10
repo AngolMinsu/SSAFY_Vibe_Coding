@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I AM | 토박이가 말해주는 진짜 광주 사용설명서</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <header>
+        <h1 class="fade-in-element">광주, 어디까지 가봤는가?</h1>
+        <p class="fade-in-element">토박이가 스크리닝한 진짜 전라도 여행 가이드</p>
+        <button class="btn-explore fade-in-element" id="exploreBtn">로컬 탐험 시작하기</button>
+    </header>
+
+    <section class="intro-section fade-in-element" id="intro">
+        <p class="intro-lead">의향(義鄕), 예향(藝鄕), 미향(味鄕)의 도시</p>
+        <h2>오직 광주에서만 누릴 수 있는 것들</h2>
+        <p>흔해 빠진 대형 프랜차이즈 가이드는 거부합니다. 광주 토박이들만 조용히 공유하는 진짜 로컬 감성, 그리고 밥상 부러지게 나오는 전라도 손맛의 정점만을 모았습니다. 아래 대한민국 지도 스크롤을 조절해 광주 안으로 들어가 보세요.</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>🍲 미향 (味鄕)</h3>
+                <p>기본 반찬만으로 밥 한 공기 뚝딱 비워내는 전라도 밥상의 찐 매력을 소개합니다.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎨 예향 (藝鄕)</h3>
+                <p>아시아문화전당(ACC)과 동명동 골목골목에 녹아 있는 트렌디한 예술적 감성을 느껴보세요.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🌲 의향 (義鄕)</h3>
+                <p>웅장한 어머니의 품 같은 무등산과 역사적 숨결이 서린 공간들을 배치했습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section fade-in-element">
+        <h2>광주 로컬 핫스팟 리얼 MAP</h2>
+        <p>마우스 휠이나 제스처로 <strong>줌인/줌아웃</strong>이 가능합니다. 핀 위에 마우스를 올려 상세 카드를 확인하세요!</p>
+        
+        <div id="map"></div>
+        
+        <p class="map-instruction">💡 대한민국 지도 위 광주 광역시에 고정된 붉은 점을 확대해 보세요.</p>
+    </section>
+
+    <div class="info-card" id="infoCard">
+        <h4>
+            <span id="cardTitle">장소명</span>
+            <span class="tag" id="cardTag">태그</span>
+        </h4>
+        <p id="cardDesc">설명글이 들어가는 자리입니다.</p>
+    </div>
+
+    <section class="action-section fade-in-element">
+        <button class="btn-explore" id="tipBtn">외지인은 모르는 '광주 생존 팁' 받기</button>
+    </section>
+
+    <div class="popup-overlay" id="popup">
+        <div class="popup-content">
+            <h3>💡 토박이가 전하는 광주 백서</h3>
+            
+            <div class="tip-item">
+                <strong>궁전제과 공룡알빵 & 나비파이</strong>
+                <p>전국 5대 빵집 중 하나! 바삭한 페스츄리에 달콤한 시럽이 발린 나비파이는 필수 수집 품목입니다.</p>
+            </div>
+            <div class="tip-item">
+                <strong>상추튀김의 진실</strong>
+                <p>상추터를 튀긴 게 아니라, 갓 튀긴 오징어튀김을 청양고추 다진 간장 양념과 함께 상추에 싸 먹는 로컬 별미입니다.</p>
+            </div>
+            <div class="tip-item">
+                <strong>순대는 무조건 '초장'</strong>
+                <p>광주에서는 순대를 시키면 소금 대신 매콤달콤한 초장이 기본 제공됩니다. 꼭 찍어 드셔보세요!</p>
+            </div>
+            
+            <button class="btn-close" id="closeBtn">알겠어잉, 접수!</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 I AM : 광주 사용 설명서. Powered by Vanilla JS & Leaflet.js</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
